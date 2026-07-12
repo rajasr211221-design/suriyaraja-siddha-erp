@@ -2,7 +2,7 @@
 -- Suriyaraja Siddha Health Care ERP
 -- Migration: 003_users_roles.sql
 -- Description: User Roles Master
--- ==========================================================
+-- ========================================================== 
 
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
