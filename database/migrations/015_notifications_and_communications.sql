@@ -2265,21 +2265,19 @@ EXECUTE FUNCTION app.fn_update_updated_at();
 CREATE OR REPLACE FUNCTION app.fn_create_notification
 (
     p_notification_category_id UUID,
-    p_notification_template_id UUID DEFAULT NULL,
-
     p_recipient_type app.notification_recipient_type,
     p_recipient_id UUID,
+    p_message TEXT,
 
+    p_notification_template_id UUID DEFAULT NULL,
     p_sender_id UUID DEFAULT NULL,
 
     p_title VARCHAR DEFAULT NULL,
     p_title_tamil VARCHAR DEFAULT NULL,
 
-    p_message TEXT,
     p_message_tamil TEXT DEFAULT NULL,
 
     p_channel app.notification_channel DEFAULT 'IN_APP',
-
     p_priority app.notification_priority DEFAULT 'NORMAL',
 
     p_reference_module VARCHAR DEFAULT NULL,
@@ -2292,7 +2290,7 @@ CREATE OR REPLACE FUNCTION app.fn_create_notification
     p_scheduled_at TIMESTAMPTZ DEFAULT NOW(),
     p_expires_at TIMESTAMPTZ DEFAULT NULL,
 
-    p_metadata JSONB DEFAULT '{}'::JSONB,
+    p_metadata JSONB DEFAULT '{}'::jsonb,
 
     p_created_by UUID DEFAULT NULL
 )
